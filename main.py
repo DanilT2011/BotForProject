@@ -19,7 +19,6 @@ bot = Bot(token=TOKEN)
 films = build_list_films()  # Фильмы
 
 dp = Dispatcher()
-# </tg-spoiler>   <--- Что это (0_0)
 
 
 @dp.callback_query(lambda c: c.data == 'button1')   # Я хочу отдохнуть
