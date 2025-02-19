@@ -29,6 +29,8 @@ button_replay_1_2 = [btn_activity_1_2]
 button_replay_2_1 = [btn_activity_2_1]
 button_replay_2_2 = [btn_activity_2_2]
 
+button_replay_3 = [btn_choose_3]
+
 # Keyboards
 kb1 = InlineKeyboardMarkup(inline_keyboard=buttons_kb1)   # Choose the activity
 kb2 = InlineKeyboardMarkup(inline_keyboard=buttons_kb2)   # List of act I want to relax
@@ -38,6 +40,7 @@ kb_replay1_1 = InlineKeyboardMarkup(inline_keyboard=button_replay_1_1)
 kb_replay1_2 = InlineKeyboardMarkup(inline_keyboard=button_replay_1_2)
 kb_replay2_1 = InlineKeyboardMarkup(inline_keyboard=button_replay_2_1)
 kb_replay2_2 = InlineKeyboardMarkup(inline_keyboard=button_replay_2_2)
+kb_replay_3 = InlineKeyboardMarkup(inline_keyboard=button_replay_3)
 
 
 algorithms = [["алгоритмы сортировок", "https://proglib.io/p/sort-gif"],

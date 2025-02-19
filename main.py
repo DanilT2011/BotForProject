@@ -40,6 +40,7 @@ async def process_callback_button2(callback_query: CallbackQuery):
 async def process_callback_button3(callback_query: CallbackQuery):
     await bot.delete_message(callback_query.message.chat.id, callback_query.message.message_id)
     await callback_query.message.answer("Я могу предложить вам " + data.actions[randint(0, len(data.actions)-1)])
+    await callback_query.message.answer("Перевыбрать занятие: ", reply_markup=data.kb_replay_3)
 
 
 @dp.callback_query(lambda c: c.data == 'button5')   # Выбрать случайную тему для изучения
