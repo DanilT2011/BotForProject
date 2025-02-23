@@ -10,13 +10,15 @@ from random import randint
 from aiogram.filters import CommandStart
 from aiogram.filters import Command
 from aiogram.types import Message, CallbackQuery
-from allfilms import build_list_films
+from Cartoons import get_cartoons
+from IVI import give_film
 from randbook import get_book
 from randfact import get_fact
 
 TOKEN = data.token
 bot = Bot(token=TOKEN)
-films = build_list_films()  # Фильмы
+cartoons = get_cartoons()   # Мультфильмы
+films = give_film()  # Фильмы
 
 dp = Dispatcher()
 
@@ -30,9 +32,8 @@ async def process_callback_button1(callback_query: CallbackQuery):
 @dp.callback_query(lambda c: c.data == 'button2')   # Выбрать фильм
 async def process_callback_button2(callback_query: CallbackQuery):
     await bot.delete_message(callback_query.message.chat.id, callback_query.message.message_id)
-    await callback_query.message.answer(films[randint(0, len(films))])
+    await callback_query.message.answer(films[randint(0, len(films)-1)])
     await callback_query.message.answer("Перевыбрать фильм: ", reply_markup=data.kb_replay1_1)
-
 
 
 @dp.callback_query(lambda c: c.data == 'button3')   # Другое
@@ -40,6 +41,12 @@ async def process_callback_button3(callback_query: CallbackQuery):
     await bot.delete_message(callback_query.message.chat.id, callback_query.message.message_id)
     await callback_query.message.answer("Я могу предложить вам " + data.actions[randint(0, len(data.actions)-1)])
     await callback_query.message.answer("Перевыбрать занятие: ", reply_markup=data.kb_replay_3)
+
+
+@dp.callback_query(lambda c: c.data == 'button4')   # Я хочу узнать что-то новое
+async def process_callback_button4(callback_query: CallbackQuery):
+    await bot.delete_message(callback_query.message.chat.id, callback_query.message.message_id)
+    await callback_query.message.answer("Вот, что я могу предложить вам:", reply_markup=data.kb3)
 
 
 @dp.callback_query(lambda c: c.data == 'button5')   # Выбрать случайную тему для изучения
@@ -51,12 +58,6 @@ async def process_callback_button5(callback_query: CallbackQuery):
                                         "\nВот ссылка на материал: " + data.algorithms[random_num][1]
                                         )
     await callback_query.message.answer("Перевыбрать тему: ", reply_markup=data.kb_replay2_1)
-
-
-@dp.callback_query(lambda c: c.data == 'button4')   # Я хочу узнать что-то новое
-async def process_callback_button4(callback_query: CallbackQuery):
-    await bot.delete_message(callback_query.message.chat.id, callback_query.message.message_id)
-    await callback_query.message.answer("Вот, что я могу предложить вам:", reply_markup=data.kb3)
 
 
 @dp.callback_query(lambda c: c.data == 'button6')   # Случайная цитата
