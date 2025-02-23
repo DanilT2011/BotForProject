@@ -6,7 +6,7 @@ from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 # Token
 token = "7349600380:AAEogCt9ZMJ2_CTBIn7bNtf6Jgro7L2L4hs"
 
-# Неиспользуемые номера кнопок - 8
+# Неиспользуемые номера кнопок - 9
 # Buttons
 # Нумерация кнопок происходит по тому когда я их создал
 btn_choose_1 = [InlineKeyboardButton(text='Я хочу отдохнуть😎', callback_data='button1')]   # Choose the activity 1
@@ -15,16 +15,18 @@ btn_choose_3 = [InlineKeyboardButton(text='Другое', callback_data='button3
 
 btn_activity_1_1 = [InlineKeyboardButton(text='Выбрать случайный фильм🎥', callback_data='button2')]   # Act
 btn_activity_1_2 = [InlineKeyboardButton(text='Выбрать случайную книгу📚', callback_data="button7")]   # Act
+btn_activity_1_3 = [InlineKeyboardButton(text='Выбрать случайную мультфильм🎥', callback_data="button8")]
 
 btn_activity_2_1 = [InlineKeyboardButton(text='Выбрать случайную тему для изучения🎓', callback_data='button5')]
 btn_activity_2_2 = [InlineKeyboardButton(text='Выбрать случайную цитату🤫🧏‍♂️', callback_data='button6')]
 
 buttons_kb1 = [btn_choose_1, btn_choose_2, btn_choose_3]   # List of variants Choose the activity
-buttons_kb2 = [btn_activity_1_1, btn_activity_1_2]   # List of act I want to relax
+buttons_kb2 = [btn_activity_1_1, btn_activity_1_2, btn_activity_1_3]   # List of act I want to relax
 buttons_kb3 = [btn_activity_2_1, btn_activity_2_2]   # I want to learn something new
 
 button_replay_1_1 = [btn_activity_1_1]
 button_replay_1_2 = [btn_activity_1_2]
+button_replay_1_3 = [btn_activity_1_3]
 
 button_replay_2_1 = [btn_activity_2_1]
 button_replay_2_2 = [btn_activity_2_2]
@@ -32,15 +34,16 @@ button_replay_2_2 = [btn_activity_2_2]
 button_replay_3 = [btn_choose_3]
 
 # Keyboards
-kb1 = InlineKeyboardMarkup(inline_keyboard=buttons_kb1)   # Choose the activity
-kb2 = InlineKeyboardMarkup(inline_keyboard=buttons_kb2)   # List of act I want to relax
-kb3 = InlineKeyboardMarkup(inline_keyboard=buttons_kb3)   # List of act I want to learn something new
+kb1_1 = InlineKeyboardMarkup(inline_keyboard=buttons_kb1)   # Choose the activity
+kb1_2 = InlineKeyboardMarkup(inline_keyboard=buttons_kb2)   # List of act I want to relax
+kb1_3 = InlineKeyboardMarkup(inline_keyboard=buttons_kb3)   # List of act I want to learn something new
 
 kb_replay1_1 = InlineKeyboardMarkup(inline_keyboard=button_replay_1_1)
 kb_replay1_2 = InlineKeyboardMarkup(inline_keyboard=button_replay_1_2)
+kb_replay1_3 = InlineKeyboardMarkup(inline_keyboard=button_replay_1_3)
 kb_replay2_1 = InlineKeyboardMarkup(inline_keyboard=button_replay_2_1)
 kb_replay2_2 = InlineKeyboardMarkup(inline_keyboard=button_replay_2_2)
-kb_replay_3 = InlineKeyboardMarkup(inline_keyboard=button_replay_3)
+kb_replay2_3 = InlineKeyboardMarkup(inline_keyboard=button_replay_3)
 
 
 algorithms = [["алгоритмы сортировок", "https://proglib.io/p/sort-gif"],
@@ -61,7 +64,8 @@ actions = ["сделать зарядку🏋️‍♂️",
            "попробовать сделать музыку🎼",
            "сыграть в шахматы(https://www.c4355.com/ru/play/computer)♟️",
            "решить пару головоломок (пример сайт головоломками wordly: https://wordleplay.com/ru/)🧩",
-           "убраться в доме🧹"]
+           "убраться в доме🧹",
+           "попробовать сделать монтаж для видео(https://hi-tech.mail.ru/review/59725-programmy-dlya-montazha/?ysclid=m7hcwk1ru1731991103#anchor172301922090088196)🎬"]
 
 # Список максимум
 # Сделать красивое оформление вывода данных(предложение фильма) добавить смайлов и т.п.

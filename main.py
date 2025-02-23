@@ -26,7 +26,7 @@ dp = Dispatcher()
 @dp.callback_query(lambda c: c.data == 'button1')   # Я хочу отдохнуть
 async def process_callback_button1(callback_query: CallbackQuery):
     await bot.delete_message(callback_query.message.chat.id, callback_query.message.message_id)
-    await callback_query.message.answer("Вот, что я могу предложить вам:", reply_markup=data.kb2)
+    await callback_query.message.answer("Вот, что я могу предложить вам:", reply_markup=data.kb1_2)
 
 
 @dp.callback_query(lambda c: c.data == 'button2')   # Выбрать фильм
@@ -40,13 +40,13 @@ async def process_callback_button2(callback_query: CallbackQuery):
 async def process_callback_button3(callback_query: CallbackQuery):
     await bot.delete_message(callback_query.message.chat.id, callback_query.message.message_id)
     await callback_query.message.answer("Я могу предложить вам " + data.actions[randint(0, len(data.actions)-1)])
-    await callback_query.message.answer("Перевыбрать занятие: ", reply_markup=data.kb_replay_3)
+    await callback_query.message.answer("Перевыбрать занятие: ", reply_markup=data.kb_replay2_3)
 
 
 @dp.callback_query(lambda c: c.data == 'button4')   # Я хочу узнать что-то новое
 async def process_callback_button4(callback_query: CallbackQuery):
     await bot.delete_message(callback_query.message.chat.id, callback_query.message.message_id)
-    await callback_query.message.answer("Вот, что я могу предложить вам:", reply_markup=data.kb3)
+    await callback_query.message.answer("Вот, что я могу предложить вам:", reply_markup=data.kb1_3)
 
 
 @dp.callback_query(lambda c: c.data == 'button5')   # Выбрать случайную тему для изучения
@@ -82,33 +82,42 @@ async def process_callback_button7(callback_query: CallbackQuery):
     await callback_query.message.answer("Перевыбрать книгу: ", reply_markup=data.kb_replay1_2)
 
 
+@dp.callback_query(lambda c: c.data == 'button8')   # Выбрать мультфильм
+async def process_callback_button8(callback_query: CallbackQuery):
+    await bot.delete_message(callback_query.message.chat.id, callback_query.message.message_id)
+    await callback_query.message.answer(cartoons[randint(0, len(cartoons)-1)])
+    await callback_query.message.answer("Перевыбрать мультфильм: ", reply_markup=data.kb_replay1_3)
 
-@dp.message(Command('freetime'))   # Начать генерацию занятия
+
+@dp.message(Command('freetimeall'))   # Начать генерацию занятия
 async def choose_activity(message: Message):
-    await message.reply("Что больше всего ты сейчас хочешь сделать?", reply_markup=data.kb1)
+    await message.reply("Что больше всего ты сейчас хочешь сделать?", reply_markup=data.kb1_1)
+
+
+
 
 
 @dp.message(CommandStart())
 async def command_start_handler(message: Message):   # Старт
     await message.answer(f"Привет, {message.from_user.full_name}!")
     await message.answer("Чтобы узнать болше о боте напиши /info\n" +
-                         "Чтобы начать генерацию занятия на свободное время напиши /freetime")
+                         "Чтобы начать генерацию занятия на свободное время со всеми вариантами занятий напиши /freetimeall")
 
 
 @dp.message(Command('info'))
 async def say_informathion(message: Message):
     await message.answer("Данный бот создан учеником 7А класса Тян Данилом для проекта\n" +
-                         "При написании команды /freetime бот генерирует занятие на свободное действие\n" +
+                         "При написании команды /freetimeall бот генерирует занятие на свободное действие\n" +
                          "Бот парсит информацию с таких сайтов, как:\n" +
                          "https://www.ivi.ru/collections/free-movies\n" +
-                         "https://wink.ru/collections/besplatno\n" +
                          "https://randstuff.ru/saying/\n" +
-                         "https://readly.ru/books/i_am_lucky/?show=1")
+                         "https://readly.ru/books/i_am_lucky/?show=1\n" +
+                         "https://kino.mail.ru/cinema/all/multiplikacionnyj/")
 
 
 @dp.message()
 async def echo_handler(message: Message):
-    await message.answer("Команды /freetime /info /start")
+    await message.answer("Команды /freetimeall /info /start")
 
 
 async def main():   # Запускается при запуске программы
