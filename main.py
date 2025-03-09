@@ -39,7 +39,7 @@ async def process_callback_button2(callback_query: CallbackQuery):
 @dp.callback_query(lambda c: c.data == 'button3')   # Другое
 async def process_callback_button3(callback_query: CallbackQuery):
     await bot.delete_message(callback_query.message.chat.id, callback_query.message.message_id)
-    await callback_query.message.answer("Я могу предложить вам " + data.actions[randint(0, len(data.actions)-1)])
+    await callback_query.message.answer("Я могу предложить вам " + (data.actions_18 + data.actions_50)[randint(0, len(data.actions_18) + len(data.actions_50)-2)])
     await callback_query.message.answer("Перевыбрать занятие: ", reply_markup=data.kb_replay2_3)
 
 
@@ -89,12 +89,62 @@ async def process_callback_button8(callback_query: CallbackQuery):
     await callback_query.message.answer("Перевыбрать мультфильм: ", reply_markup=data.kb_replay1_3)
 
 
+@dp.callback_query(lambda c: c.data == 'button9')   # 18 recommends
+async def process_callback_button8(callback_query: CallbackQuery):
+    await bot.delete_message(callback_query.message.chat.id, callback_query.message.message_id)
+    await callback_query.message.answer("Вот, что я могу предложить вам:", reply_markup=data.kb1_18)
+
+
+@dp.callback_query(lambda c: c.data == 'button10')   # 50 recommends
+async def process_callback_button8(callback_query: CallbackQuery):
+    await bot.delete_message(callback_query.message.chat.id, callback_query.message.message_id)
+    await callback_query.message.answer("Вот, что я могу предложить вам:", reply_markup=data.kb1_50)
+
+
+@dp.callback_query(lambda c: c.data == 'button11')   # Da
+async def process_callback_button8(callback_query: CallbackQuery):
+    await bot.delete_message(callback_query.message.chat.id, callback_query.message.message_id)
+    await callback_query.message.answer("Вот, что я могу предложить вам:", reply_markup=data.kb2_18)
+
+
+@dp.callback_query(lambda c: c.data == 'button12')   # Da
+async def process_callback_button8(callback_query: CallbackQuery):
+    await bot.delete_message(callback_query.message.chat.id, callback_query.message.message_id)
+    await callback_query.message.answer("Вот, что я могу предложить вам:", reply_markup=data.kb3_18)
+
+
+@dp.callback_query(lambda c: c.data == 'button13')   # Выбрать мультфильм
+async def process_callback_button8(callback_query: CallbackQuery):
+    await bot.delete_message(callback_query.message.chat.id, callback_query.message.message_id)
+    await callback_query.message.answer(data.actions_18[randint(0, len(data.actions_18))])
+
+
+@dp.callback_query(lambda c: c.data == 'button14')   # Da
+async def process_callback_button8(callback_query: CallbackQuery):
+    await bot.delete_message(callback_query.message.chat.id, callback_query.message.message_id)
+    await callback_query.message.answer("Вот, что я могу предложить вам:", reply_markup=data.kb2_50)
+
+
+@dp.callback_query(lambda c: c.data == 'button15')   # Da
+async def process_callback_button8(callback_query: CallbackQuery):
+    await bot.delete_message(callback_query.message.chat.id, callback_query.message.message_id)
+    await callback_query.message.answer("Вот, что я могу предложить вам:", reply_markup=data.kb3_50)
+
+
+@dp.callback_query(lambda c: c.data == 'button16')   # Выбрать мультфильм
+async def process_callback_button8(callback_query: CallbackQuery):
+    await bot.delete_message(callback_query.message.chat.id, callback_query.message.message_id)
+    await callback_query.message.answer(data.actions_50[randint(0, len(data.actions_50))])
+
+
 @dp.message(Command('freetimeall'))   # Начать генерацию занятия
 async def choose_activity(message: Message):
     await message.reply("Что больше всего ты сейчас хочешь сделать?", reply_markup=data.kb1_1)
 
 
-
+@dp.message(Command('freetime'))
+async def choose_activity_age(message: Message):
+    await message.answer("Укажи свой возраст: ", reply_markup=data.kb_age)
 
 
 @dp.message(CommandStart())
