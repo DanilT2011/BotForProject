@@ -151,7 +151,8 @@ async def choose_activity_age(message: Message):
 async def command_start_handler(message: Message):   # Старт
     await message.answer(f"Привет, {message.from_user.full_name}!")
     await message.answer("Чтобы узнать болше о боте напиши /info\n" +
-                         "Чтобы начать генерацию занятия на свободное время со всеми вариантами занятий напиши /freetimeall")
+                         "Чтобы начать генерацию занятия на свободное время со всеми вариантами занятий напиши /freetimeall\n" +
+                         "Чтобы начать генерацию занятия на свободное время по особому алгоритму напиши /freetime")
 
 
 @dp.message(Command('info'))
