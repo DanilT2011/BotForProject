@@ -4,7 +4,7 @@
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 # Token
-token = "7349600380:AAEogCt9ZMJ2_CTBIn7bNtf6Jgro7L2L4hs"
+token = "Это информация тут не нужна"
 
 # Неиспользуемые номера кнопок - 14
 # Buttons
@@ -100,15 +100,3 @@ actions_50 = ["поспать 1-2 часа💤",
               "прочитать пару анекдотов(https://www.litres.ru/book/raznoe-47672/samye-smeshnye-anekdoty-23556560/chitat-onlayn/)",
               "приготовить что-то новое👨‍🍳",
               "убраться в доме🧹"]
-
-# Список максимум
-# Сделать красивое оформление вывода данных(предложение фильма) добавить смайлов и т.п.
-
-
-"""
-                Список литературы
-https://surik00.gitbooks.io/aiogram-lessons/content/chapter5.html 25.12.2024
-https://habr.com/ru/articles/820877/ 25.12.2024
-https://www.youtube.com/watch?v=o06cdLnyc3I 26.12.2024
-https://www.youtube.com/watch?v=cNb6WYNvxok&list=PLNi5HdK6QEmWLtb8gh8pwcFUJCAabqZh_ 23.12.2024
-"""
